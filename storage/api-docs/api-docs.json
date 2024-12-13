@@ -1,0 +1,32 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API FONER",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/etudiants": {
+            "get": {
+                "tags": [
+                    "Etudiants"
+                ],
+                "summary": "Affiche la liste des étudiants",
+                "operationId": "5f59d4136a8408d473871dd26a11e14f",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Etudiants",
+            "description": "Etudiants"
+        }
+    ]
+}

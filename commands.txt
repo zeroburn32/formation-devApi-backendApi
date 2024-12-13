@@ -1,0 +1,29 @@
+php artisan serve
+php artisan make:model Etudiant (-mrc)
+php artisan make:controller EtudiantController --model=Etudiant
+
+php artisan config:clear
+php artisan route:clear
+php artisan cache:clear
+
+composer require zircote/swagger-php
+composer require darkaonline/l5-swagger  
+
+php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+php artisan l5-swagger:generate
+
+http://127.0.0.1/api/documentation
+
+composer update
+php artisan vendor:publish --provider="InfyOm\Generator\InfyOmGeneratorServiceProvider"
+php artisan infyom:publish 
+
+php artisan infyom:api Etudiant --fromTable --table=etudiants
+php artisan infyom:api Inscrit --fromTable --table=inscrits
+
+php artisan infyom:migration etudiants --fieldsFile=resources/model_schemas/Etudiant.json
+php artisan infyom:migration inscrits --fieldsFile=resources/model_schemas/Inscrit.json
+
+php artisan make:controller RegisterController
+
+ 
